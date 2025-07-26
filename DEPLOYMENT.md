@@ -40,6 +40,8 @@ git push -u origin main
    NEXT_PUBLIC_SOLANA_RPC_URL=https://api.devnet.solana.com
    NEXT_PUBLIC_LETSBONK_API_URL=https://api.letsbonk.fun
    ```
+   
+   **Note**: This version uses mock data for demonstration. Real Solana integration can be added later.
 
 6. Click "Deploy"
 

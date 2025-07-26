@@ -1,12 +1,6 @@
-import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js'
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
-
-// Solana network configuration
-export const SOLANA_NETWORK = WalletAdapterNetwork.Devnet
-export const SOLANA_RPC_URL = process.env.NEXT_PUBLIC_SOLANA_RPC_URL || clusterApiUrl(SOLANA_NETWORK)
-
-// Create connection instance
-export const connection = new Connection(SOLANA_RPC_URL, 'confirmed')
+// Solana network configuration - using devnet
+export const SOLANA_NETWORK = 'devnet'
+export const SOLANA_RPC_URL = process.env.NEXT_PUBLIC_SOLANA_RPC_URL || 'https://api.devnet.solana.com'
 
 // Common token addresses (Devnet)
 export const TOKEN_ADDRESSES = {
@@ -39,12 +33,8 @@ export const TOKEN_METADATA = {
 
 // Utility functions
 export function isValidPublicKey(address: string): boolean {
-  try {
-    new PublicKey(address)
-    return true
-  } catch {
-    return false
-  }
+  // Simple validation for Solana address format
+  return /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(address)
 }
 
 export function formatLamports(lamports: number, decimals: number = 9): number {
@@ -53,35 +43,6 @@ export function formatLamports(lamports: number, decimals: number = 9): number {
 
 export function toLamports(amount: number, decimals: number = 9): number {
   return Math.floor(amount * Math.pow(10, decimals))
-}
-
-// Get token balance
-export async function getTokenBalance(
-  connection: Connection,
-  walletAddress: PublicKey,
-  tokenAddress: PublicKey
-): Promise<number> {
-  try {
-    const balance = await connection.getTokenAccountBalance(tokenAddress)
-    return formatLamports(balance.value.amount, balance.value.decimals)
-  } catch (error) {
-    console.error('Error getting token balance:', error)
-    return 0
-  }
-}
-
-// Get SOL balance
-export async function getSolBalance(
-  connection: Connection,
-  walletAddress: PublicKey
-): Promise<number> {
-  try {
-    const balance = await connection.getBalance(walletAddress)
-    return formatLamports(balance, 9)
-  } catch (error) {
-    console.error('Error getting SOL balance:', error)
-    return 0
-  }
 }
 
 // Mock market data for development

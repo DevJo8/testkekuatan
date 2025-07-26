@@ -20,16 +20,16 @@ A modern, professional trading terminal for Solana blockchain, integrated with `
 ### 🔗 Integrations
 - **letsbonk.fun** - Direct integration with the letsbonk platform
 - **Solana Network** - Full Solana blockchain support
-- **Multiple Wallets** - Phantom, Solflare, Backpack wallet support
+- **Phantom Wallet** - Ready for Phantom wallet integration
 
 ## Tech Stack
 
 - **Frontend**: Next.js 14, React 18, TypeScript
 - **Styling**: Tailwind CSS, Framer Motion
 - **Charts**: Recharts
-- **Blockchain**: Solana Web3.js, @solana/wallet-adapter
+- **Blockchain**: Ready for Solana Web3.js integration
 - **State Management**: Zustand
-- **Icons**: Lucide React
+- **Icons**: Emoji icons (ready for Lucide React)
 
 ## Getting Started
 

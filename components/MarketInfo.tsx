@@ -1,7 +1,5 @@
 'use client'
 
-import { TrendingUp, TrendingDown, Volume2 } from 'lucide-react'
-
 interface MarketInfoProps {
   token: string
 }
@@ -31,7 +29,7 @@ export function MarketInfo({ token }: MarketInfoProps) {
           <div className="flex items-center space-x-2">
             <span className="text-3xl font-bold text-white">${marketData.price}</span>
             <div className={`flex items-center space-x-1 ${isPositive ? 'text-success-400' : 'text-danger-400'}`}>
-              {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+              <span className="w-4 h-4">{isPositive ? '📈' : '📉'}</span>
               <span className="text-sm font-medium">
                 {isPositive ? '+' : ''}{marketData.change}%
               </span>

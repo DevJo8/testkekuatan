@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowUpDown, ArrowDownUp } from 'lucide-react'
 
 export function TradingForm() {
   const [orderType, setOrderType] = useState<'buy' | 'sell'>('buy')
@@ -27,7 +26,7 @@ export function TradingForm() {
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          <ArrowUpDown className="w-4 h-4 inline mr-2" />
+          <span className="inline mr-2">📈</span>
           Buy
         </button>
         <button
@@ -39,7 +38,7 @@ export function TradingForm() {
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          <ArrowDownUp className="w-4 h-4 inline mr-2" />
+          <span className="inline mr-2">📉</span>
           Sell
         </button>
       </div>

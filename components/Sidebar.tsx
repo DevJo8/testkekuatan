@@ -1,7 +1,5 @@
 'use client'
 
-import { X, Home, BarChart3, Wallet, Settings, ExternalLink } from 'lucide-react'
-
 interface SidebarProps {
   isOpen: boolean
   onClose: () => void
@@ -9,10 +7,10 @@ interface SidebarProps {
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const menuItems = [
-    { icon: Home, label: 'Dashboard', href: '/' },
-    { icon: BarChart3, label: 'Trading', href: '/trading' },
-    { icon: Wallet, label: 'Portfolio', href: '/portfolio' },
-    { icon: Settings, label: 'Settings', href: '/settings' },
+    { icon: '🏠', label: 'Dashboard', href: '/' },
+    { icon: '📊', label: 'Trading', href: '/trading' },
+    { icon: '💼', label: 'Portfolio', href: '/portfolio' },
+    { icon: '⚙️', label: 'Settings', href: '/settings' },
   ]
 
   return (
@@ -33,12 +31,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       >
         <div className="flex items-center justify-between p-4 border-b border-dark-600">
           <h2 className="text-lg font-semibold text-white">Navigation</h2>
-          <button
-            onClick={onClose}
-            className="lg:hidden p-2 rounded-lg hover:bg-dark-700 transition-colors"
-          >
-            <X className="w-5 h-5 text-gray-300" />
-          </button>
+                      <button
+              onClick={onClose}
+              className="lg:hidden p-2 rounded-lg hover:bg-dark-700 transition-colors text-gray-300"
+            >
+              ✕
+            </button>
         </div>
 
         <nav className="p-4">
@@ -49,7 +47,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   href={item.href}
                   className="flex items-center space-x-3 p-3 rounded-lg hover:bg-dark-700 transition-colors text-gray-300 hover:text-white"
                 >
-                  <item.icon className="w-5 h-5" />
+                  <span className="w-5 h-5">{item.icon}</span>
                   <span>{item.label}</span>
                 </a>
               </li>
@@ -64,7 +62,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               rel="noopener noreferrer"
               className="flex items-center space-x-3 p-3 rounded-lg hover:bg-dark-700 transition-colors text-gray-300 hover:text-white"
             >
-              <ExternalLink className="w-5 h-5" />
+              <span className="w-5 h-5">🔗</span>
               <span>letsbonk.fun</span>
             </a>
           </div>
